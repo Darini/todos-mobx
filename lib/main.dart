@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todos_mobx/components/avatar_widget.dart';
 import 'package:todos_mobx/components/button_widget.dart';
 import 'package:todos_mobx/themes/app_theme.dart';
 
@@ -26,11 +27,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        child: CustomButton(
-          text: 'Teste',
-          callback: () {},
-          width: 300,
-          image: 'assets/images/google.png',
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 40,
+            ),
+            CustomButton(
+              text: 'Teste',
+              callback: () {},
+              width: 300,
+              image: 'assets/images/google.png',
+            ),
+            const CustomAvatar(
+              path: 'https://place-hold.it/200',
+              width: 120,
+            ),
+          ],
         ),
       ),
     );
