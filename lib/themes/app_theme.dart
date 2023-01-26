@@ -7,89 +7,50 @@ const accentColor = Color(0xFF000000);
 ThemeData appTheme() {
   return ThemeData(
     brightness: brightness,
-    textTheme: TextTheme(
-      bodyText1: const TextStyle(
+    textTheme: const TextTheme(
+      bodySmall: TextStyle(
         fontFamily: 'Poppins',
       ),
-      bodyText2: const TextStyle(
+      bodyMedium: TextStyle(
         fontFamily: 'Poppins',
       ),
-      bodySmall: const TextStyle(
+      bodyLarge: TextStyle(
         fontFamily: 'Poppins',
       ),
-      bodyMedium: const TextStyle(
+      displaySmall: TextStyle(
         fontFamily: 'Poppins',
       ),
-      bodyLarge: const TextStyle(
+      displayMedium: TextStyle(
         fontFamily: 'Poppins',
       ),
-      button: const TextStyle(
+      displayLarge: TextStyle(
         fontFamily: 'Poppins',
       ),
-      caption: const TextStyle(
+      headlineSmall: TextStyle(
         fontFamily: 'Poppins',
       ),
-      displaySmall: const TextStyle(
+      headlineMedium: TextStyle(
         fontFamily: 'Poppins',
       ),
-      displayMedium: const TextStyle(
+      headlineLarge: TextStyle(
         fontFamily: 'Poppins',
       ),
-      displayLarge: const TextStyle(
+      titleSmall: TextStyle(
         fontFamily: 'Poppins',
       ),
-      headline1: const TextStyle(
+      titleMedium: TextStyle(
         fontFamily: 'Poppins',
       ),
-      headline2: const TextStyle(
+      titleLarge: TextStyle(
         fontFamily: 'Poppins',
       ),
-      headline3: const TextStyle(
+      labelSmall: TextStyle(
         fontFamily: 'Poppins',
       ),
-      headline4: const TextStyle(
+      labelMedium: TextStyle(
         fontFamily: 'Poppins',
       ),
-      headline5: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      headline6: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      headlineSmall: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      headlineMedium: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      headlineLarge: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      overline: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      subtitle1: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      subtitle2: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      titleSmall: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      titleMedium: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      titleLarge: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      labelSmall: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      labelMedium: const TextStyle(
-        fontFamily: 'Poppins',
-      ),
-      labelLarge: const TextStyle(
+      labelLarge: TextStyle(
         fontFamily: 'Poppins',
       ),
     ),
