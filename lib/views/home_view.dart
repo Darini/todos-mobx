@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todos_mobx/views/create_todo_view.dart';
 import 'package:todos_mobx/views/widgets/navbar_widget.dart';
+import 'package:todos_mobx/views/widgets/todo_list_widget.dart';
 import 'package:todos_mobx/views/widgets/user_card_widget.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,6 +14,9 @@ class HomeView extends StatelessWidget {
         children: const <Widget>[
           UserCard(),
           Navbar(),
+          Expanded(
+            child: TodoList(),
+          ),
         ],
       ),
     );
