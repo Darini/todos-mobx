@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todos_mobx/components/button_widget.dart';
 import 'package:todos_mobx/views/home_view.dart';
-import 'package:todos_mobx/views/widgets/user_card_widget.dart';
+import 'package:todos_mobx/widgets/user_card_widget.dart';
 
 class CreateTodoView extends StatelessWidget {
   const CreateTodoView({Key? key}) : super(key: key);
