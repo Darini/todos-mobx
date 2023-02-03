@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:todos_mobx/themes/app_theme.dart';
-import 'package:todos_mobx/views/home_view.dart';
 import 'package:todos_mobx/views/login_view.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ToDos',
       theme: appTheme(),
-      home: const HomeView(),
+      home: const LoginView(),
     );
   }
 }

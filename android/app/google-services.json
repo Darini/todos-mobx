@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "950543166390",
+    "project_id": "todos-99025",
+    "storage_bucket": "todos-99025.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950543166390:android:0b7c5c2855cd7d14d42f17",
+        "android_client_info": {
+          "package_name": "br.com.darini.todos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "950543166390-9s701bpcn9i5ak4qgknuokeg7ns0dk3h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.darini.todos",
+            "certificate_hash": "c09dd2b21365e6db09d7412e2d95c00d253b2add"
+          }
+        },
+        {
+          "client_id": "950543166390-onu62p2aga23eu09vtngrenm0uo7ompn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwZzjtRlHsjJRCZ8r1OtJsojgcW51nHPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "950543166390-onu62p2aga23eu09vtngrenm0uo7ompn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
