@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomAvatar extends StatelessWidget {
-  final String path;
+  final String? path;
   final double width;
 
   const CustomAvatar({Key? key, required this.path, required this.width})
@@ -16,7 +16,7 @@ class CustomAvatar extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(width),
         image: DecorationImage(
-          image: NetworkImage(path),
+          image: NetworkImage(path ?? 'https://place-hold.it/80'),
         ),
         color: Colors.black.withOpacity(0.2),
         border: Border.all(

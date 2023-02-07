@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:todos_mobx/components/avatar_widget.dart';
+import 'package:todos_mobx/controllers/login_controller.dart';
+import 'package:todos_mobx/user.dart';
+import 'package:todos_mobx/views/login_view.dart';
 
 class UserCard extends StatelessWidget {
-  const UserCard({Key? key}) : super(key: key);
+  final controller = LoginController();
+
+  UserCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +26,16 @@ class UserCard extends StatelessWidget {
       alignment: Alignment.center,
       child: Column(
         children: <Widget>[
-          const CustomAvatar(
-            path: 'https://place-hold.it/80',
+          CustomAvatar(
+            path: user.picture,
             width: 80,
           ),
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            'Lucas Darini',
-            style: TextStyle(
+          Text(
+            user.name ?? '',
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),
@@ -43,7 +48,16 @@ class UserCard extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                controller.logout().then((data) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginView(),
+                    ),
+                  );
+                });
+              },
             ),
           ),
           const SizedBox(

@@ -12,7 +12,7 @@ class CreateTodoView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            const UserCard(),
+            UserCard(),
             Padding(
               padding: const EdgeInsets.all(40.0),
               child: Form(

@@ -11,10 +11,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const <Widget>[
+        children: <Widget>[
           UserCard(),
-          Navbar(),
-          Expanded(
+          const Navbar(),
+          const Expanded(
             child: TodoList(),
           ),
         ],
