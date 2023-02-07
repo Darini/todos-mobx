@@ -7,22 +7,22 @@ class LoginController {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   Future login() async {
-    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser!.authentication;
 
-    final AuthCredential credential = GoogleAuthProvider.getCredential(
-        idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+    final AuthCredential credential = GoogleAuthProvider.credential(
+        idToken: googleAuth!.idToken, accessToken: googleAuth.accessToken);
 
-    final FirebaseUser firebaseUser =
+    final User? firebaseUser =
         (await _firebaseAuth.signInWithCredential(credential)).user;
 
-    var tokenResult = await firebaseUser.getIdToken();
+    var tokenResult = await firebaseUser!.getIdToken();
 
     user.name = firebaseUser.displayName;
     user.email = firebaseUser.email;
-    user.picture = firebaseUser.photoUrl;
-    user.token = tokenResult.token;
+    user.picture = firebaseUser.photoURL;
+    user.token = tokenResult;
   }
 
   Future logout() async {
