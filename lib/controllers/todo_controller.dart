@@ -1,3 +1,4 @@
+import 'package:todos_mobx/models/todo_item_model.dart';
 import 'package:todos_mobx/repositories/todo_repository.dart';
 import 'package:todos_mobx/stores/app_store.dart';
 
@@ -48,5 +49,25 @@ class TodoController {
           return;
         }
     }
+  }
+
+  Future add(TodoItemModel item) async {
+    _store!.busy = true;
+
+    await _repository!.add(item);
+
+    _store!.busy = false;
+
+    changeSelection(_store!.currentState);
+  }
+
+  Future markAsDone(TodoItemModel item) async {
+    _store!.busy = true;
+
+    await _repository!.markAsDone(item);
+
+    _store!.busy = false;
+
+    changeSelection(_store!.currentState);
   }
 }
