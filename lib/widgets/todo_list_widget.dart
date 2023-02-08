@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:todos_mobx/controllers/todo_controller.dart';
+import 'package:todos_mobx/stores/app_store.dart';
+import 'package:todos_mobx/widgets/busy_widget.dart';
 
 class TodoList extends StatelessWidget {
-  const TodoList({Key? key}) : super(key: key);
+  final _dateFormat = DateFormat('dd/MM/yyyy');
+
+  TodoList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.only(
-        left: 40,
+    final store = Provider.of<AppStore>(context);
+    final controller = TodoController(store);
+
+    return Observer(
+      builder: (_) => CustomBusy(
+        busy: store.busy,
+        child: store.todos.isEmpty
+            ? const Center(
+                child: Text('Nenhuma tarefa encontrada!'),
+              )
+            : ListView.builder(
+                padding: const EdgeInsets.only(left: 40),
+                itemCount: store.todos.length,
+                itemBuilder: (context, index) {
+                  var todo = store.todos[index];
+
+                  return ListTile(
+                    title: Text(
+                      todo.title!,
+                      style: TextStyle(
+                          color: todo.done!
+                              ? Colors.black.withOpacity(0.2)
+                              : Colors.black),
+                    ),
+                    subtitle: Text(
+                      _dateFormat.format(todo.date!),
+                    ),
+                  );
+                },
+              ),
       ),
-      children: <Widget>[
-        const ListTile(
-          title: Text(
-            'Ir ao supermercado',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black,
-            ),
-          ),
-          subtitle: Text('01/02/2023'),
-        ),
-        ListTile(
-          title: Text(
-            'Ir para a academia',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black.withOpacity(0.2),
-            ),
-          ),
-          subtitle: const Text('02/02/2023'),
-        ),
-      ],
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todos_mobx/controllers/todo_controller.dart';
+import 'package:todos_mobx/stores/app_store.dart';
 import 'package:todos_mobx/views/create_todo_view.dart';
 import 'package:todos_mobx/widgets/navbar_widget.dart';
 import 'package:todos_mobx/widgets/todo_list_widget.dart';
@@ -9,12 +12,19 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<AppStore>(context);
+    final controller = TodoController(store);
+
+    if (store.currentState == 'none') {
+      controller.changeSelection('today');
+    }
+
     return Scaffold(
       body: Column(
         children: <Widget>[
           UserCard(),
           const Navbar(),
-          const Expanded(
+          Expanded(
             child: TodoList(),
           ),
         ],
