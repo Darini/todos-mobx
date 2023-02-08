@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todos_mobx/stores/app_store.dart';
 
 import 'package:todos_mobx/themes/app_theme.dart';
 import 'package:todos_mobx/views/login_view.dart';
@@ -17,11 +19,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ToDos',
-      theme: appTheme(),
-      home: const LoginView(),
+    return MultiProvider(
+      providers: [
+        Provider<AppStore>.value(
+          value: AppStore(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'ToDos',
+        theme: appTheme(),
+        home: const LoginView(),
+      ),
     );
   }
 }
