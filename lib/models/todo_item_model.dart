@@ -12,18 +12,18 @@ abstract class TodoItemModelKeys {
 @JsonSerializable()
 class TodoItemModel {
   @JsonKey(name: TodoItemModelKeys.id)
-  String id;
+  String? id;
 
   @JsonKey(name: TodoItemModelKeys.title)
-  String title;
+  String? title;
 
   @JsonKey(name: TodoItemModelKeys.done)
-  bool done;
+  bool? done;
 
   @JsonKey(name: TodoItemModelKeys.date)
-  DateTime date;
+  DateTime? date;
 
-  TodoItemModel(this.id, this.title, this.done, this.date);
+  TodoItemModel({this.id, this.title, this.done, this.date});
 
   factory TodoItemModel.fromJson(Map<String, dynamic> json) =>
       _$TodoItemModelFromJson(json);

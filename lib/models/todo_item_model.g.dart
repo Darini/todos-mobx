@@ -8,10 +8,11 @@ part of 'todo_item_model.dart';
 
 TodoItemModel _$TodoItemModelFromJson(Map<String, dynamic> json) =>
     TodoItemModel(
-      json['id'] as String,
-      json['title'] as String,
-      json['done'] as bool,
-      DateTime.parse(json['data'] as String),
+      id: json['id'] as String?,
+      title: json['title'] as String?,
+      done: json['done'] as bool?,
+      date:
+          json['data'] == null ? null : DateTime.parse(json['data'] as String),
     );
 
 Map<String, dynamic> _$TodoItemModelToJson(TodoItemModel instance) =>
@@ -19,5 +20,5 @@ Map<String, dynamic> _$TodoItemModelToJson(TodoItemModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'done': instance.done,
-      'data': instance.date.toIso8601String(),
+      'data': instance.date?.toIso8601String(),
     };
