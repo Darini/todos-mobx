@@ -1,7 +1,11 @@
 import 'package:mobx/mobx.dart';
 import 'package:todos_mobx/models/todo_item_model.dart';
 
-class AppStore {
+part 'app_store.g.dart';
+
+class AppStore = _AppStore with _$AppStore;
+
+abstract class _AppStore with Store {
   @observable
   String currentState = 'none';
 
