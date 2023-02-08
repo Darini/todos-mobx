@@ -1,10 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:todos_mobx/components/button_widget.dart';
 import 'package:todos_mobx/views/home_view.dart';
 import 'package:todos_mobx/widgets/user_card_widget.dart';
 
-class CreateTodoView extends StatelessWidget {
+class CreateTodoView extends StatefulWidget {
   const CreateTodoView({Key? key}) : super(key: key);
+
+  @override
+  State<CreateTodoView> createState() => _CreateTodoViewState();
+}
+
+class _CreateTodoViewState extends State<CreateTodoView> {
+  final _formKey = GlobalKey<FormState>();
+  final _dateFormat = DateFormat('dd/MM/yyyy');
+
+  String task = '';
+  DateTime date = DateTime.now();
+
+  Future _selectDate(BuildContext context) async {
+    final DateTime? selectDate = await showDatePicker(
+      context: context,
+      initialDate: date,
+      firstDate: DateTime(2000, 1),
+      lastDate: DateTime(2040),
+    );
+
+    if (selectDate != null && selectDate != date) {
+      setState(() {
+        date = selectDate;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +65,7 @@ class CreateTodoView extends StatelessWidget {
                         top: 20,
                       ),
                       child: Text(
-                        '26/01/2023',
+                        _dateFormat.format(date),
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                           fontSize: 34,
@@ -47,8 +74,15 @@ class CreateTodoView extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      child: const Text('Alterar Data'),
-                      onPressed: () {},
+                      child: const Text(
+                        'Alterar Data',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      onPressed: () {
+                        _selectDate(context);
+                      },
                     ),
                   ],
                 ),
@@ -68,7 +102,12 @@ class CreateTodoView extends StatelessWidget {
               ),
             ),
             TextButton(
-              child: const Text('Cancelar'),
+              child: const Text(
+                'Cancelar',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
