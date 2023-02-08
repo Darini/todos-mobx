@@ -12,12 +12,12 @@ class CustomBusy extends StatelessWidget {
   Widget build(BuildContext context) {
     return busy
         ? Center(
-            child: Container(
-              margin: EdgeInsets.only(
-                  top: (MediaQuery.of(context).size.height / 2) - 50),
+            child: SizedBox(
               height: 50,
               width: 50,
-              child: const CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           )
         : child;

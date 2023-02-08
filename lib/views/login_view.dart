@@ -55,11 +55,11 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(30),
-          child: CustomBusy(
-            busy: busy,
+      body: CustomBusy(
+        busy: busy,
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(30),
             child: Card(
               child: Column(
                 children: <Widget>[
