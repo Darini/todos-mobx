@@ -32,6 +32,6 @@ abstract class _AppStore with Store {
 
   @action
   void clearTodos() {
-    todos.clear();
+    todos = ObservableList<TodoItemModel>();
   }
 }
