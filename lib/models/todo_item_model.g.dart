@@ -12,7 +12,7 @@ TodoItemModel _$TodoItemModelFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String?,
       done: json['done'] as bool?,
       date:
-          json['data'] == null ? null : DateTime.parse(json['data'] as String),
+          json['date'] == null ? null : DateTime.parse(json['date'] as String),
     );
 
 Map<String, dynamic> _$TodoItemModelToJson(TodoItemModel instance) =>
@@ -20,5 +20,5 @@ Map<String, dynamic> _$TodoItemModelToJson(TodoItemModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'done': instance.done,
-      'data': instance.date?.toIso8601String(),
+      'date': instance.date?.toIso8601String(),
     };

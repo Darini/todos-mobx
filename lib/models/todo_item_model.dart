@@ -6,7 +6,7 @@ abstract class TodoItemModelKeys {
   static const id = 'id';
   static const title = 'title';
   static const done = 'done';
-  static const date = 'data';
+  static const date = 'date';
 }
 
 @JsonSerializable()

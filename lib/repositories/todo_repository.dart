@@ -56,7 +56,7 @@ class TodoRepository {
     try {
       Response response = await Dio().post(
         url,
-        data: item,
+        data: item.toJson(),
         options: Options(
           headers: {HttpHeaders.authorizationHeader: 'Bearer ${user.token}'},
         ),
