@@ -40,6 +40,52 @@ class TodoList extends StatelessWidget {
                     subtitle: Text(
                       _dateFormat.format(todo.date!),
                     ),
+                    onLongPress: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text(
+                              'Concluir a Tarefa',
+                            ),
+                            content: Text(
+                                'Deseja concluir a tarefa "${todo.title}"'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text(
+                                  'Cancelar',
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  controller.markAsDone(todo).then((data) {
+                                    Navigator.of(context).pop();
+                                  }).catchError((onError) {
+                                    SnackBar snackBar = const SnackBar(
+                                      content: Text(
+                                        'Ops, algo deu errado!',
+                                      ),
+                                    );
+
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  });
+                                },
+                                child: Text(
+                                  'Concluir',
+                                  style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                      );
+                    },
                   );
                 },
               ),
